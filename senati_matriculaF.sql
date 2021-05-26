@@ -384,6 +384,10 @@ SELECT * FROM tb_Carrera
 GO
 
 
+-- Falta agregar los datos q dejo como actividad (rellenar datos)
+
+
+
 -- Ultima clase 
 
 
