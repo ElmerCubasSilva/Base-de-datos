@@ -38,9 +38,8 @@ create table tb_Cliente(
 	apellido varchar(20) not null,
 	celular varchar(13),
 	correo varchar(50),
-	departamento char(5) not null foreign key references tb_Departamento(codigo_departamento),
-	provincia char(5) not null foreign key references tb_Provincia (codigo_provincia),
-	distrito char(5) not null foreign key references tb_Distrito (codigo_distrito),
+	distrito char(5) not null foreign key 
+	references tb_Distrito (codigo_distrito),
 	direccion varchar(100) not null)
 go
 
@@ -53,37 +52,29 @@ go
 --Creando la Tabla Producto
 create table tb_Producto(
 	id_producto char(5) not null primary key,
-	nombre varchar(20) not null,
+	nombre varchar(30) not null,
 	descripcion varchar(100),
 	marca varchar(20) not null,
 	estado char(1) not null,
 	seccion char(1) not null,
-	id_categoria char(2) not null foreign key references tb_Categoria (id_categoria))
+	producto_id_categoria char(2) not null foreign key references tb_Categoria (id_categoria))
+go
+
+-- Crear la tabla colores
+create table tb_Color(
+	id_color char(5) not null primary key,
+	color varchar(15) not null
+)
 go
 
 --Creando la Tabla Detalles de Producto
 create table tb_Detalle_Producto(
 	id_producto_venta char(5) not null primary key,
 	id_producto char(5) not null foreign key references tb_Producto (id_producto),
-	talla char(1) not null,
-	precio numeric(7,2))
-go
-
---Creando la Tabla Colores
-create table tb_Color(
-	id_color char(3) not null primary key,
-	color varchar(30) not null)
-go
-
---Creando la Tabla Colores por Producto
-create table tb_Color_Producto(
-	id_producto_venta char(5) not null foreign key references tb_Detalle_Producto (id_producto_venta),
-	id_color char(3) not null foreign key references tb_Color (id_color))
-go
-
---Agregando PK a dos columnas
-alter table tb_Color_Producto
-add primary key (id_producto_venta, id_color)
+	talla varchar(2) not null,
+	producto_id_color char(5) not null foreign key references tb_Color(id_color),
+	precio numeric(7,2)
+)
 go
 
 --Creando la Tabla Pais
@@ -97,7 +88,7 @@ create table tb_Proveedor(
 	id_proveedor char(5) not null primary key,
 	nombre_proveedor varchar(30) not null,
 	correo varchar(50) not null,
-	telefono varchar(13) not null,
+	telefono varchar(13),
 	id_pais char(5) not null foreign key references tb_Pais (id_pais))
 go
 
@@ -107,7 +98,7 @@ create table tb_Producto_Proveedor(
 	id_producto char(5) not null foreign key references tb_Producto (id_producto))
 go
 
---Agregando PK a dos Columnas
+--Agregando PK a dos Columnas de la tabla Producto_Proveedor
 alter table tb_Producto_Proveedor
 add primary key(id_proveedor, id_producto)
 go
@@ -126,15 +117,16 @@ go
 create table tb_Detalle_Pedido(
 	id_pedido char(5) not null foreign key references tb_Pedido (id_pedido),
 	id_producto_venta  char(5) not null foreign key references tb_Detalle_Producto (id_producto_venta),
-	id_color char(3) not null foreign key references tb_Color (id_color),
-	cantidad varchar(3) not null,
+	cantidad smallint not null,
 	precio numeric(7,2) not null)
 go
 
 --Agregando PK a tres Columnas
 alter table tb_Detalle_Pedido
-add primary key (id_pedido, id_producto_venta, id_color)
+add primary key (id_pedido, id_producto_venta)
 go
+
+
 
 
 --Insertar datos
