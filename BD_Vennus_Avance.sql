@@ -15,14 +15,21 @@ go
 --Creando la Tabla Provincia
 create table tb_Provincia(
 	codigo_provincia char(5) not null primary key,
-	provincia varchar(50) not null)
+	provincia varchar(50) not null,
+	provincia_codigo_dpto char(5) not null foreign key 
+	references tb_Departamento(codigo_departamento)
+)
 go
 
 --Creando la Tabla Distrito
 create table tb_Distrito(
 	codigo_distrito char(5) not null primary key,
-	distrito varchar(50) not null)
+	distrito varchar(50) not null,
+	distrito_codigo_provincia char(5) not null foreign key 
+	references tb_Provincia(codigo_provincia) 
+)
 go
+
 
 --Creando la Tabla Cliente 
 create table tb_Cliente(
@@ -170,7 +177,7 @@ go
 insert into tb_Distrito values
 ('DI001','Independencia'),
 ('DI002','Eten'),
-('DI003','Pachacútec'),
+('DI003','PachacÃºtec'),
 ('DI004','Paucartambo'),
 ('DI005','Jesus Nazareno')
 go
