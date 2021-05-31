@@ -144,6 +144,19 @@ insert into tb_Departamento values
 ('D0005','Ayacucho')
 go
 
+insert into tb_Departamento values
+('D0006','Amazonas'),
+('D0007','Ancash'),
+('D0008','Apurimac'),
+('D0009','La libertad'),
+('D0010','Loreto'),
+('D0011','Madre de Dios'),
+('D0012','San Martin'),
+('D0013','Ucayali'),
+('D0014','Huanuco'),
+('D0015','Junin')
+go
+
 --Listar los registros de la tabla de Departamento
 select * from tb_Departamento
 go
@@ -159,6 +172,19 @@ insert into tb_Provincia values
 ('PR004','Ica','D0003'),
 ('PR005','Cerro de Pasco','D0004'),
 ('PR006','Huamanga','D0005')
+go
+
+insert into tb_Provincia values
+('PR007','Chachapoyas','D0006'),
+('PR008','Huaraz','D0007'),
+('PR009','Abancay','D0008'),
+('PR010','Trujillo','D0009'),
+('PR011','Iquitos','D0010'),
+('PR012','Puerto Maldonado','D0011'),
+('PR013','Moyobamba','D0012'),
+('PR014','Pucallpa','D0013'),
+('PR015','Huanuco','D0014'),
+('PR016','Huancayo','D0015')
 go
 
 --Listar los registros de la tabla de Provincia
@@ -179,6 +205,19 @@ insert into tb_Distrito values
 ('DI006','Independencia','PR001')
 go
 
+insert into tb_Distrito values
+('DI007','Bagua','PR007'),
+('DI008','Antonio Raymondi','PR008'),
+('DI009','Antabamba','PR009'),
+('DI010','Ascope','PR010'),
+('DI011','Putumayo','PR011'),
+('DI012','Tambopata','PR012'),
+('DI013','Mariscal Nieto','PR013'),
+('DI014','Atalaya','PR014'),
+('DI015','Lauricocha','PR015'),
+('DI016','Chanchamayo','PR016')
+go
+
 --Listar los registros de la tabla de Distrito
 select * from tb_Distrito
 go
@@ -191,7 +230,12 @@ insert into tb_Cliente values
 ('C0001','Joseph','Fuentes Velasquez',null,'Joseph@hotmail.com','DI001','Mz-H1lt25 Av.Sirenas'),
 ('C0002','Gerson','Berrocal Najarro',null,'Gerson@hotmail.com','DI002','Mz-H1lt2 Asoc.portales'),
 ('C0003','Dante','Sembrera Cruz','906040279','Dante@hotmail.com','DI003','Mz-Hlt25 Urb.Asentamiento Humano'),
-('C0004','Elmer','Cubas Silva',null,null,'DI004','Mz-Hlt25 Jardinez')
+('C0004','Elmer','Cubas Silva',null,null,'DI004','Mz-Hlt25 Jardinez'),
+('C0005','Jose','Basquez Ramos','983247169','jose_br@hotmail.com','DI006','Av. Los jardines 503')
+go
+
+insert into tb_Cliente values
+('C0006','Mateo','Ramirez Acosta',null,'Mateo_Ramirez@gmail.com','DI016','Mz. B Av Alamo 23')
 go
 
 --Listar los registros de la tabla de Cliente
@@ -221,4 +265,24 @@ go
 select id_cliente,nombre,apellido, tb_Distrito.distrito
 from tb_Cliente inner join tb_Distrito
 on (tb_Cliente.distrito=tb_Distrito.codigo_distrito)
+go
+
+--Insertar datos
+--Tabla Colores
+--Forma3
+
+insert into tb_Color values
+('C0001','Verde'),
+('C0002','Azul'),
+('C0003','Amarillo'),
+('C0004','Celeste'),
+('C0005','Anaranjado,'),
+('C0006','Blanco'),
+('C0007','Negro'),
+('C0008','Lila'),
+('C0009','Morado'),
+('C0010','Dorado')
+go
+
+select * from tb_Color
 go
