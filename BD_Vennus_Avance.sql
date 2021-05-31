@@ -192,3 +192,28 @@ go
 --Listar los registros de la tabla de Cliente
 select * from tb_Cliente
 go
+
+
+--Insertar datos
+--Tabla Categoria
+--Forma3
+
+insert into tb_Categoria values
+('01','Camisas'),
+('02','Polos'),
+('03','Pantalones'),
+('04','Blusas'),
+('05','Vestidos')
+GO
+--Listar los registros de la tabla de Categoria
+select * from tb_Categoria
+go
+
+
+-- Seleccionar datos especificos
+-- tb_Cliente, tb_Distrito
+-- id cliente, nombre, apellido , distrito
+select id_cliente,nombre,apellido, tb_Distrito.distrito
+from tb_Cliente inner join tb_Distrito
+on (tb_Cliente.distrito=tb_Distrito.codigo_distrito)
+go
