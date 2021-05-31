@@ -49,6 +49,9 @@ create table tb_Categoria(
 	categoria varchar(20) not null)
 go
 
+
+alter table tb_Categoria 
+
 --Creando la Tabla Producto
 create table tb_Producto(
 	id_producto char(5) not null primary key,
@@ -129,9 +132,9 @@ go
 
 
 
---Insertar datos
+--INSERTAR DATOS
 --Tabla Departamentos
---Forma3
+
 
 insert into tb_Departamento values
 ('D0001','Lima'),
@@ -150,11 +153,12 @@ go
 --Forma3
 
 insert into tb_Provincia values
-('P0001','Lima'),
-('P0002','chiclayo'),
-('P0003','Ica'),
-('P0004','Cerro de Pasco'),
-('P0005','Huamanga')
+('PR001','Lima','D0001'),
+('PR002','Cañete','D0001'),
+('PR003','Barranco','D0001'),
+('PR004','Ica','D0003'),
+('PR005','Cerro de Pasco','D0004'),
+('PR006','Huamanga','D0005')
 go
 
 --Listar los registros de la tabla de Provincia
@@ -167,11 +171,12 @@ go
 --Forma3
 
 insert into tb_Distrito values
-('DI001','Independencia'),
-('DI002','Eten'),
-('DI003','Pachacútec'),
-('DI004','Paucartambo'),
-('DI005','Jesus Nazareno')
+('DI001','Lima','PR001'),
+('DI002','Los Olivos','PR001'),
+('DI003','San Martin de Porres','PR001'),
+('DI004','Comas','PR001'),
+('DI005','Breña','PR001'),
+('DI006','Independencia','PR001')
 go
 
 --Listar los registros de la tabla de Distrito
@@ -183,10 +188,10 @@ go
 --Forma3
 
 insert into tb_Cliente values
-('C0001','Joseph','Fuentes Velasquez','902020209','Joseph@hotmail.com','D0001','P0001','DI001','Mz-H1lt25 Av.Sirenas'),
-('C0002','Gerson','Berrocal Najarro','905030269','Gerson@hotmail.com','D0002','P0002','DI002','Mz-H1lt2 Asoc.portales'),
-('C0003','Dante','Sembrera Cruz','906040279','Dante@hotmail.com','D0003','P0003','DI003','Mz-Hlt25 Urb.Asentamiento Humano'),
-('C0004','Elmer','Cubas Silva','908050289','ElmerCs@hotmail.com','D0004','P0004','DI004','Mz-Hlt25 Jardinez')
+('C0001','Joseph','Fuentes Velasquez',null,'Joseph@hotmail.com','DI001','Mz-H1lt25 Av.Sirenas'),
+('C0002','Gerson','Berrocal Najarro',null,'Gerson@hotmail.com','DI002','Mz-H1lt2 Asoc.portales'),
+('C0003','Dante','Sembrera Cruz','906040279','Dante@hotmail.com','DI003','Mz-Hlt25 Urb.Asentamiento Humano'),
+('C0004','Elmer','Cubas Silva',null,null,'DI004','Mz-Hlt25 Jardinez')
 go
 
 --Listar los registros de la tabla de Cliente
